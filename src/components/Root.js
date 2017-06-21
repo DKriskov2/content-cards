@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import Header from './Header'
 import App from './App'
 import Favorites from './Favorites'
 
@@ -14,12 +15,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/favorites">Favorites</Link></li>
-        </ul>
-
-        <hr/>
+        <Header />
 
         <Route exact path="/" component={App}/>
         <Route path="/favorites" component={Favorites}/>
