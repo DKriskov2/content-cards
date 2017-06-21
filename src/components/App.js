@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Button } from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        dggdsdfgds
+        <Button>Default</Button>
       </div>
     );
   }

@@ -7,6 +7,7 @@ import { contentCardsApp, initialState } from './reducers'
 import Root from './components/Root';
 import registerServiceWorker from './registerServiceWorker';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 
 let store = createStore(contentCardsApp, initialState)
