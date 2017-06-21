@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class Favorites extends Component {
   render() {
@@ -8,4 +10,13 @@ class Favorites extends Component {
   }
 }
 
-export default Favorites
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
