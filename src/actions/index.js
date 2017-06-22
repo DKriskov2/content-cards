@@ -10,10 +10,10 @@ export const startLoadingPlaces = () => {
   return { type: actionTypes.START_LOADING }
 }
 
-export const getGooglePlaces = () => dispatch => {
+export const getGooglePlaces = (location) => dispatch => {
   dispatch(startLoadingPlaces())
 
-  getGooglePlacesService()
+  getGooglePlacesService(location)
 }
 
 export const getGooglePlacesSuccess = () => {

@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
 import * as actionTypes from '../actions'
+
 
 class App extends Component {
   componentDidMount() {
-    this.props.getGooglePlaces()
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const location = {
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        }
+        this.props.getGooglePlaces(location)
+      },
+      () => {
+        this.props.getGooglePlaces()
+      }
+    )
   }
 
   render() {
