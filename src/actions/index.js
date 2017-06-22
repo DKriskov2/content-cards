@@ -1,12 +1,17 @@
 export const actionTypes = {
-  GET_CONTENT_CARDS: 'GET_CONTENT_CARDS',
-  GET_CONTENT_CARDS_SUCCESS: 'GET_CONTENT_CARDS_SUCCESS'
+  START_LOADING: 'START_LOADING',
+  GET_GOOGLE_PLACES: 'GET_GOOGLE_PLACES',
+  GET_GOOGLE_PLACES_SUCCESS: 'GET_GOOGLE_PLACES_SUCCESS'
 }
 
-export const getContentCards = () => {
-  return { type: actionTypes.GET_CONTENT_CARDS }
+export const startLoadingPlaces = () => {
+  return { type: actionTypes.START_LOADING }
 }
 
-export const getContentCardsSuccess = () => {
-  return { type: actionTypes.GET_CONTENT_CARDS_SUCCESS }
+export const getGooglePlaces = () => dispatch => {
+  dispatch(startLoadingPlaces())
+}
+
+export const getGooglePlacesSuccess = () => {
+  return { type: actionTypes.GET_GOOGLE_PLACES_SUCCESS }
 }

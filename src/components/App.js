@@ -1,25 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Button } from 'react-bootstrap';
+import * as actionTypes from '../actions'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getGooglePlaces()
+  }
+
   render() {
     return (
       <div className="App">
-        <Button>Default</Button>
+        { this.props.isLoading && 
+          <span>dgsgfgfs</span>
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
-  return {}
+  return {
+    isLoading: state.isLoading
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    getGooglePlaces: bindActionCreators(actionTypes.getGooglePlaces, dispatch)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

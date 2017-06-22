@@ -8,12 +8,12 @@ export const initialState = {
 
 export const contentCardsApp = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.GET_CONTENT_CARDS:
+    case actionTypes.START_LOADING:
       return Object.assign({}, state, {
         isLoading: true
       })
 
-    case actionTypes.GET_CONTENT_CARDS_SUCCESS:
+    case actionTypes.GET_GOOGLE_PLACES_SUCCESS:
       console.log(action)
       return state
   
