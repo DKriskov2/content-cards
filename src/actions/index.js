@@ -1,3 +1,5 @@
+import getGooglePlacesService from '../services/getGooglePlacesService'
+
 export const actionTypes = {
   START_LOADING: 'START_LOADING',
   GET_GOOGLE_PLACES: 'GET_GOOGLE_PLACES',
@@ -10,6 +12,8 @@ export const startLoadingPlaces = () => {
 
 export const getGooglePlaces = () => dispatch => {
   dispatch(startLoadingPlaces())
+
+  getGooglePlacesService()
 }
 
 export const getGooglePlacesSuccess = () => {
