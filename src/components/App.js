@@ -5,6 +5,9 @@ import { bindActionCreators } from 'redux'
 import * as actionTypes from '../actions'
 
 import getUserLocation from '../services/getUserLocation'
+
+const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
+const GOOGLE_PLACES_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
  
 class App extends Component {
   componentDidMount() {
@@ -33,7 +36,7 @@ class App extends Component {
 }
 
 const getBgImage = (photoReference) => {
-  return `url(https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBzslEGtQy17iOS7PLYWq-VK4TQjJAvcrI)`
+  return `url(${GOOGLE_PLACES_API}photo?maxwidth=400&photoreference=${photoReference}&key=${GOOGLE_PLACES_KEY})`
 }
 
 const mapStateToProps = (state) => {

@@ -5,10 +5,13 @@ var cors = require('cors')
 var app = express();
 app.use(cors())
 
+const GOOGLE_API_URL = process.env.REACT_APP_GOOGLE_PLACES_API
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
+
 app.get('/nearbysearch/:location/:radius', function (req, res) {
   request({
     method: 'GET',
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBzslEGtQy17iOS7PLYWq-VK4TQjJAvcrI',
+    url: GOOGLE_API_URL + 'nearbysearch/json?key=' + GOOGLE_API_KEY,
     qs: {
       location: req.params.location,
       radius: req.params.radius
