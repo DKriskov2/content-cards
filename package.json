@@ -5,6 +5,8 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -13,7 +15,8 @@
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",
@@ -55,7 +58,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js && node proxy.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

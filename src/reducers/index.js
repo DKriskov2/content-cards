@@ -1,9 +1,10 @@
 import { actionTypes } from '../actions'
 
 export const initialState = {
-  contentCards: [],
-  favoriteCards: [],
-  isLoading: null
+  googlePlaces: null,
+  favoritePlaces: [],
+  isLoading: null,
+  errorMessage: ''
 }
 
 export const contentCardsApp = (state = initialState, action) => {
@@ -14,8 +15,16 @@ export const contentCardsApp = (state = initialState, action) => {
       })
 
     case actionTypes.GET_GOOGLE_PLACES_SUCCESS:
-      console.log(action)
-      return state
+      return Object.assign({}, state, {
+        googlePlaces: action.places,
+        isLoading: false
+      })
+
+    case actionTypes.GET_GOOGLE_PLACES_ERROR:
+      return Object.assign({}, state, {
+        errorMessage: action.err,
+        isLoading: false
+      })
   
     default: return state
   }
