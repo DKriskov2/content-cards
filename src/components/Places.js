@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as actionTypes from '../actions'
-
 import getUserLocation from '../services/getUserLocation'
+
+import { PageHeader } from 'react-bootstrap'
 
 const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
 const GOOGLE_PLACES_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
  
-class App extends Component {
+class Places extends Component {
   componentDidMount() {
     if (!this.props.googlePlaces) {
       getUserLocation()
@@ -22,14 +23,11 @@ class App extends Component {
     }
   }
 
-  componentWillReceiveProps (props) {
-    console.log(props)
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className='test' style={{backgroundImage: getBgImage('CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU')}}></div>        
+      <div>
+        <div className='test' style={{backgroundImage: getBgImage('CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU')}}></div>
+        <PageHeader bsClass='custom-page-header'>Nearby places list</PageHeader>
       </div>
     );
   }
@@ -53,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(Places)

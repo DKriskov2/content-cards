@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { PageHeader } from 'react-bootstrap'
 
 class Favorites extends Component {
   render() {
     return (
-      <div>test</div>
+      <div>
+        <PageHeader bsClass='custom-page-header'>Favorites</PageHeader>
+      </div>
     )
   }
 }
