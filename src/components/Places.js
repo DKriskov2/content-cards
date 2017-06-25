@@ -35,7 +35,7 @@ class Places extends Component {
             <p>{this.props.errorMessage}</p>
           </div>
          ) : (
-           <PlacesList />
+           <PlacesList places={this.props.googlePlaces} />
          )}
       </div>
     );

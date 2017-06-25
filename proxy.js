@@ -5,8 +5,8 @@ var cors = require('cors')
 var app = express();
 app.use(cors())
 
-const GOOGLE_API_URL = process.env.REACT_APP_GOOGLE_PLACES_API
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
+const GOOGLE_API_URL = 'https://maps.googleapis.com/maps/api/place/'
+const GOOGLE_API_KEY = 'AIzaSyBzslEGtQy17iOS7PLYWq-VK4TQjJAvcrI'
 
 app.get('/nearbysearch/:location/:radius', function (req, res) {
   request({
@@ -19,6 +19,6 @@ app.get('/nearbysearch/:location/:radius', function (req, res) {
   }).pipe(res)
 })
 
-app.listen(8000, function () {
-  console.log('proxy listening on port 8000!');
+app.listen(3333, function () {
+  console.log('proxy listening on port 3333!');
 })
