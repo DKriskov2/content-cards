@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as actionTypes from '../actions'
 import getUserLocation from '../services/getUserLocation'
 
-import { PageHeader } from 'react-bootstrap'
+import { PageHeader, Grid } from 'react-bootstrap'
 import PlacesList from './PlacesList'
 
 const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
@@ -30,6 +30,7 @@ class Places extends Component {
         {/*<div className='test' style={{backgroundImage: getBgImage('CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU')}}></div>*/}
         <PageHeader bsClass='custom-page-header'>Nearby places list</PageHeader>
 
+        <Grid fluid>
          {this.props.errorMessage ? (
           <div className='content'>
             <p>{this.props.errorMessage}</p>
@@ -37,6 +38,7 @@ class Places extends Component {
          ) : (
            <PlacesList places={this.props.googlePlaces} />
          )}
+        </Grid>
       </div>
     );
   }

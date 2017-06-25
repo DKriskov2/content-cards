@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
 
 const Header = () => (
-  <Navbar collapseOnSelect>
+  <Navbar collapseOnSelect fluid>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">Nearby Places</Link>

@@ -8,20 +8,14 @@ import Home from './Home'
 import Places from './Places'
 import Favorites from './Favorites'
 
-import { Grid } from 'react-bootstrap'
-
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div>
         <Header />
-        <Grid>
-          <div className='content-wrap'>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/places" component={Places}/>
-            <Route path="/favorites" component={Favorites}/>
-          </div>
-        </Grid>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/places" component={Places}/>
+        <Route path="/favorites" component={Favorites}/>
       </div>
     </Router>
   </Provider>
