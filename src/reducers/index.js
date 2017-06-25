@@ -4,7 +4,7 @@ export const initialState = {
   googlePlaces: null,
   favoritePlaces: [],
   isLoading: null,
-  errorMessage: ''
+  errorMessage: null
 }
 
 export const contentCardsApp = (state = initialState, action) => {

@@ -13,5 +13,9 @@ export default function getGooglePlacesService (location) {
   }
 
   return fetch(`http://localhost:8000/nearbysearch/${options.location}/${options.radius}`)
-    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      // return res.json()
+    })
+    .catch(err => console.log(err))
 }

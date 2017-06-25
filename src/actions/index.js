@@ -16,10 +16,10 @@ export const getGooglePlaces = (location) => dispatch => {
 
   getGooglePlacesService(location)
   .then(res => {
-    if (res.status === 'OK') {
+    if (res && res.status === 'OK') {
       dispatch(getGooglePlacesSuccess(res.results))
     } else {
-      dispatch(getGooglePlacesError(res.error_message))
+      dispatch(getGooglePlacesError('Error loading places'))
     }
   })
 }
