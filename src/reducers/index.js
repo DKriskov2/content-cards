@@ -3,7 +3,7 @@ import { actionTypes } from '../actions'
 export const initialState = {
   googlePlaces: null,
   favoritePlaces: [],
-  isLoading: null,
+  isLoading: true,
   errorMessage: null
 }
 

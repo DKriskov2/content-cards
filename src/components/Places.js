@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { PageHeader, Grid } from 'react-bootstrap'
 
 import * as actionTypes from '../actions'
 import getUserLocation from '../services/getUserLocation'
 
-import { PageHeader, Grid } from 'react-bootstrap'
 import PlacesList from './PlacesList'
+import Loader  from './Loader'
  
 class Places extends Component {
   componentDidMount() {
@@ -27,13 +28,14 @@ class Places extends Component {
         <PageHeader bsClass='custom-page-header'>Nearby places list</PageHeader>
 
         <Grid fluid>
-         {this.props.errorMessage ? (
-          <div className='content'>
-            <p>{this.props.errorMessage}</p>
-          </div>
-         ) : (
-           <PlacesList places={this.props.googlePlaces} />
-         )}
+          { this.props.isLoading && <Loader /> }
+          {this.props.errorMessage ? (
+            <div className='content'>
+              <p>{this.props.errorMessage}</p>
+            </div>
+          ) : (
+            <PlacesList places={this.props.googlePlaces} />
+          )}
         </Grid>
       </div>
     );
