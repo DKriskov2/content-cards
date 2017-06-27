@@ -1,0 +1,23 @@
+@import 'place-box.scss';
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.custom-page-header {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.content {
+  padding: 20px;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+.content__row {
+  padding: 0 20px;
+}
