@@ -16,7 +16,7 @@ class PlaceItem extends Component {
       'glyphicon-heart',
       'place-box__favorite-icon',
       { 'place-box__favorite-icon--active': place.isFavorite })
-      
+
     return (
       <Col xs={12} sm={6} md={3}>
         <Panel className='place-box'>
@@ -26,7 +26,7 @@ class PlaceItem extends Component {
             <span 
               className={favoriteIconClasses} 
               aria-hidden="true" 
-              onClick={() => this.props.addToFavorites(place.id)}>
+              onClick={() => this.props.onFavoriteClick(place)}>
             </span>
           </div>
           <div className='place-box__content'>
@@ -54,7 +54,7 @@ const getBgImage = (placePhotos) => {
 
 PlaceItem.PropTypes = {
   place: PropTypes.object.isRequired,
-  addToFavorites: PropTypes.func.isRequired
+  onFavoriteClick: PropTypes.func.isRequired
 }
 
 export default PlaceItem

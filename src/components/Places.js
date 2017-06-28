@@ -13,7 +13,7 @@ class Places extends Component {
   constructor () {
     super()
 
-    this.addToFavorites = this.addToFavorites.bind(this)
+    this.onFavoriteClick = this.onFavoriteClick.bind(this)
   }
 
   componentDidMount() {
@@ -28,8 +28,10 @@ class Places extends Component {
     }
   }
 
-  addToFavorites (id) {
-    this.props.addToFavorites(id)
+  onFavoriteClick (place) {
+    place.isFavorite 
+      ? this.props.removeFromFavorites(place.id)
+      : this.props.addToFavorites(place.id)
   }
 
   render() {
@@ -44,7 +46,7 @@ class Places extends Component {
               <p>{this.props.errorMessage}</p>
             </div>
           ) : (
-            <PlacesList places={this.props.googlePlaces} addToFavorites={this.addToFavorites} />
+            <PlacesList places={this.props.googlePlaces} onFavoriteClick={this.onFavoriteClick} />
           )}
         </Grid>
       </div>
@@ -63,7 +65,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getGooglePlaces: bindActionCreators(actionTypes.getGooglePlaces, dispatch),
-    addToFavorites: bindActionCreators(actionTypes.addToFavorites, dispatch)
+    addToFavorites: bindActionCreators(actionTypes.addToFavorites, dispatch),
+    removeFromFavorites: bindActionCreators(actionTypes.removeFromFavorites, dispatch)
   }
 }
 

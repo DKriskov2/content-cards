@@ -32,13 +32,28 @@ export const contentCardsApp = (state = initialState, action) => {
         .map((place) => {
           return Object.assign(place, {isFavorite: true})
         })
-      const favoritePlaces = state.favoritePlaces.concat(newFavoritePlace)
-      const googlePlaces = state.googlePlaces.map((place) => place.id === action.id ? newFavoritePlace[0] : place)
+      const favoritePlacesOnAdd = state.favoritePlaces.concat(newFavoritePlace)
+      const googlePlacesOnAdd = state.googlePlaces.map((place) => place.id === action.id ? newFavoritePlace[0] : place)
 
       return Object.assign({}, state, {
-        favoritePlaces,
-        googlePlaces
+        favoritePlaces: favoritePlacesOnAdd,
+        googlePlaces: googlePlacesOnAdd
       })
+
+    case actionTypes.REMOVE_FROM_FAVORITES:
+      const googlePlacesOnRemove = state.googlePlaces.map((place) => {
+        if (place.id === action.id) {
+          return Object.assign(place, {isFavorite: false})
+        } else {
+          return place
+        }
+      })
+
+      return Object.assign({}, state, {
+        favoritePlaces: state.favoritePlaces.filter((place) => place.id !== action.id),
+        googlePlaces: googlePlacesOnRemove
+      })
+
   
     default: return state
   }
