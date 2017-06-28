@@ -43,6 +43,9 @@
     opacity: 0;
     transition: all ease .2s;
     font-size: 25px; }
+    .place-box__favorite-icon--active {
+      color: #44c4e4;
+      opacity: 1; }
     .place-box__favorite-icon:hover {
       font-size: 35px; }
   .place-box__content {
