@@ -10,7 +10,7 @@ class PlacesList extends Component {
     let placesList = null
     if (this.props.places) {
       placesList = this.props.places.map((place) => 
-        <PlaceItem key={place.id} place={place} />
+        <PlaceItem key={place.id} place={place} addToFavorites={this.props.addToFavorites} />
       )
     }
     return (
@@ -22,7 +22,8 @@ class PlacesList extends Component {
 }
 
 PlacesList.PropTypes = {
-  places: PropTypes.array.isRequired
+  places: PropTypes.array.isRequired,
+  addToFavorites: PropTypes.func.isRequired
 }
 
 export default PlacesList

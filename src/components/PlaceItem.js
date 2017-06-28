@@ -7,7 +7,7 @@ const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
 const GOOGLE_PLACES_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
 
 class PlaceItem extends Component {
-  
+
   render () {
     const { place } = this.props
     return (
@@ -16,7 +16,7 @@ class PlaceItem extends Component {
           <div className='place-box__header' style={{backgroundImage: getBgImage(place.photos)}}>
             <div className='place-box__overlay'></div>
             <h2 className='place-box__title'>{place.name}</h2>
-            <span className="glyphicon glyphicon-heart place-box__favorite-icon" aria-hidden="true"></span>
+            <span className="glyphicon glyphicon-heart place-box__favorite-icon" aria-hidden="true" onClick={() => this.props.addToFavorites(place.id)}></span>
           </div>
           <div className='place-box__content'>
             <span className='place-box__type-icon'
@@ -42,7 +42,8 @@ const getBgImage = (placePhotos) => {
 }
 
 PlaceItem.PropTypes = {
-  place: PropTypes.object.isRequired
+  place: PropTypes.object.isRequired,
+  addToFavorites: PropTypes.func.isRequired
 }
 
 export default PlaceItem

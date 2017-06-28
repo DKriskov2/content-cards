@@ -4,7 +4,8 @@ export const actionTypes = {
   START_LOADING: 'START_LOADING',
   GET_GOOGLE_PLACES: 'GET_GOOGLE_PLACES',
   GET_GOOGLE_PLACES_SUCCESS: 'GET_GOOGLE_PLACES_SUCCESS',
-  GET_GOOGLE_PLACES_ERROR: 'GET_GOOGLE_PLACES_ERROR'
+  GET_GOOGLE_PLACES_ERROR: 'GET_GOOGLE_PLACES_ERROR',
+  ADD_TO_FAVORITES: 'ADD_TO_FAVORITES'
 }
 
 export const startLoadingPlaces = () => {
@@ -30,4 +31,8 @@ export const getGooglePlacesSuccess = (places) => {
 
 export const getGooglePlacesError = (err) => {
   return { type: actionTypes.GET_GOOGLE_PLACES_ERROR, err }
+}
+
+export const addToFavorites = (id) => dispatch => {
+  return dispatch({ type: actionTypes.ADD_TO_FAVORITES, id })
 }

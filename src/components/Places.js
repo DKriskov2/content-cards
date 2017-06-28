@@ -10,6 +10,12 @@ import PlacesList from './PlacesList'
 import Loader  from './Loader'
  
 class Places extends Component {
+  constructor () {
+    super()
+
+    this.addToFavorites = this.addToFavorites.bind(this)
+  }
+
   componentDidMount() {
     if (!this.props.googlePlaces) {
       getUserLocation()
@@ -20,6 +26,10 @@ class Places extends Component {
           this.props.getGooglePlaces()
         })
     }
+  }
+
+  addToFavorites (id) {
+    this.props.addToFavorites(id)
   }
 
   render() {
@@ -34,7 +44,7 @@ class Places extends Component {
               <p>{this.props.errorMessage}</p>
             </div>
           ) : (
-            <PlacesList places={this.props.googlePlaces} />
+            <PlacesList places={this.props.googlePlaces} addToFavorites={this.addToFavorites} />
           )}
         </Grid>
       </div>
@@ -52,7 +62,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getGooglePlaces: bindActionCreators(actionTypes.getGooglePlaces, dispatch)
+    getGooglePlaces: bindActionCreators(actionTypes.getGooglePlaces, dispatch),
+    addToFavorites: bindActionCreators(actionTypes.addToFavorites, dispatch)
   }
 }
 

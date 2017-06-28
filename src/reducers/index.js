@@ -25,6 +25,20 @@ export const contentCardsApp = (state = initialState, action) => {
         errorMessage: action.err,
         isLoading: false
       })
+
+    case actionTypes.ADD_TO_FAVORITES:
+      const newFavoritePlace = state.googlePlaces
+        .filter((place) => place.id === action.id)
+        .map((place) => {
+          return Object.assign(place, {isFavorite: true})
+        })
+      const favoritePlaces = state.favoritePlaces.concat(newFavoritePlace)
+      const googlePlaces = state.googlePlaces.map((place) => place.id === action.id ? newFavoritePlace[0] : place)
+
+      return Object.assign({}, state, {
+        favoritePlaces,
+        googlePlaces
+      })
   
     default: return state
   }
