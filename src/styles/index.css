@@ -124,6 +124,22 @@
     opacity: 0.01;
     transition: opacity 300ms ease-in; }
 
+.notification {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  display: block;
+  background-color: #44c4e4;
+  color: #fff;
+  border-radius: 50%;
+  min-height: 22px;
+  min-width: 22px;
+  text-align: center; }
+  @media (min-width: 768px) {
+    .notification {
+      top: 0;
+      right: -10px; } }
+
 .navbar {
   margin-bottom: 0; }
 
