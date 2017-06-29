@@ -22,14 +22,13 @@ class Favorites extends Component {
       <div>
         <PageHeader bsClass='custom-page-header'>Favorites</PageHeader>
 
-        <Grid fluid>
-          {this.props.favoritePlaces.length === 0 ? (
+        <Grid fluid>          
+          <PlacesList places={this.props.favoritePlaces} onFavoriteClick={this.onFavoriteClick} />
+          {this.props.favoritePlaces.length === 0 &&
             <div className='content'>
               <p>No favorite places selected</p>
             </div>
-          ) : (
-            <PlacesList places={this.props.favoritePlaces} onFavoriteClick={this.onFavoriteClick} />
-          )}
+          }      
         </Grid>
       </div>
     )

@@ -20,6 +20,8 @@ class PlacesList extends Component {
       <Row>
         <CSSTransitionGroup
           transitionName="fade-in"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
           {placesList}
