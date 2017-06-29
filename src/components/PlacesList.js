@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'react-bootstrap'
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import PlaceItem from './PlaceItem'
 
@@ -10,12 +11,19 @@ class PlacesList extends Component {
     let placesList = null
     if (this.props.places) {
       placesList = this.props.places.map((place) => 
-        <PlaceItem key={place.id} place={place} onFavoriteClick={this.props.onFavoriteClick} />
+        <div key={place.id}>
+          <PlaceItem place={place} onFavoriteClick={this.props.onFavoriteClick} />
+        </div>
       )
     }
     return (
       <Row>
-        {placesList}
+        <CSSTransitionGroup
+          transitionName="fade-in"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          {placesList}
+        </CSSTransitionGroup>
       </Row>
     )
   }
