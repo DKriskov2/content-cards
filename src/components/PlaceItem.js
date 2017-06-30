@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Col, Panel } from 'react-bootstrap'
 import Truncate from 'react-truncate'
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
 const GOOGLE_PLACES_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
@@ -14,8 +15,9 @@ class PlaceItem extends Component {
     const favoriteIconClasses = classNames(
       'glyphicon',
       'glyphicon-heart',
-      'place-box__favorite-icon',
-      { 'place-box__favorite-icon--active': place.isFavorite })
+      'place-box__icon',
+      'place-box__icon--favorite',
+      { 'place-box__icon--active': place.isFavorite })
 
     return (
       <Col xs={12} sm={6} md={3}>
@@ -23,6 +25,12 @@ class PlaceItem extends Component {
           <div className='place-box__header' style={{backgroundImage: getBgImage(place.photos)}}>
             <div className='place-box__overlay'></div>
             <h2 className='place-box__title'>{place.name}</h2>
+            <Link to={`/places/${place.id}`}>            
+              <span 
+                className='glyphicon glyphicon-open place-box__icon place-box__icon--open' 
+                aria-hidden="true">
+              </span>
+            </Link>
             <span 
               className={favoriteIconClasses} 
               aria-hidden="true" 

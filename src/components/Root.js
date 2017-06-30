@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import Header from './Header'
 import Home from './Home'
 import Places from './Places'
+import Place from './Place'
 import Favorites from './Favorites'
 
 const Root = ({ store }) => (
@@ -15,6 +16,7 @@ const Root = ({ store }) => (
         <Header />
         <Route exact path="/" component={Home}/>
         <Route exact path="/places" component={Places}/>
+        <Route path="/places/:id" component={Place}/>
         <Route path="/favorites" component={Favorites}/>
       </div>
     </Router>

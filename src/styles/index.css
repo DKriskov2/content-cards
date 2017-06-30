@@ -8,7 +8,7 @@
     background-size: cover;
     width: 100%;
     position: relative; }
-    .place-box__header:hover .place-box__favorite-icon {
+    .place-box__header:hover .place-box__icon {
       opacity: 1; }
   .place-box__overlay {
     position: absolute;
@@ -33,21 +33,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .place-box__favorite-icon {
+  .place-box__icon {
     position: absolute;
     z-index: 20;
     color: white;
     cursor: pointer;
     top: 10px;
-    right: 5px;
     opacity: 0;
     transition: all ease .2s;
     font-size: 25px; }
-    .place-box__favorite-icon--active {
+    .place-box__icon:hover {
+      font-size: 35px; }
+    .place-box__icon--active {
       color: #44c4e4;
       opacity: 1; }
-    .place-box__favorite-icon:hover {
-      font-size: 35px; }
+    .place-box__icon--favorite {
+      right: 5px; }
+    .place-box__icon--open {
+      left: 10px; }
   .place-box__content {
     padding: 20px 10px;
     height: 150px; }
