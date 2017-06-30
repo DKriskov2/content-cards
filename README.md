@@ -15,7 +15,11 @@ Run `npm start`
 
 In development run `npm run watch-css` for watching and precompiling scss files.
 
+Run the tests `npm run test`
+
 
 ## Tehnical details
 
 To access google places due to cors protection proxy had to be used. `npm start` command runs express server on port 3333, and makes a request for nearby places from google places api.
+
+Test file covers only reducer functions.
