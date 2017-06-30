@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 export default function getGooglePlacesService (location) {
   let options = {
     radius: 500,
-    location: '-32.8670522,151.1957362'
+    location: '45.8098063,15.9676489'
   }
 
   if (location) {
