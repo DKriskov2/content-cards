@@ -3,7 +3,7 @@ import { PageHeader, Grid } from 'react-bootstrap'
 
 const Home = () => (
   <div>
-    <PageHeader bsClass='custom-page-header'>Read me</PageHeader>
+    <PageHeader bsClass='custom-page-header'>About the app</PageHeader>
 
     <Grid fluid>
       <div className='content'>
