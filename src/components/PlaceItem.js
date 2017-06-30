@@ -5,8 +5,7 @@ import Truncate from 'react-truncate'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-const GOOGLE_PLACES_API = process.env.REACT_APP_GOOGLE_PLACES_API
-const GOOGLE_PLACES_KEY = process.env.REACT_APP_GOOGLE_PLACES_KEY
+import getPlaceImage from '../utils/getPlaceImage'
 
 class PlaceItem extends Component {
 
@@ -22,7 +21,7 @@ class PlaceItem extends Component {
     return (
       <Col xs={12} sm={6} md={3}>
         <Panel className='place-box'>
-          <div className='place-box__header' style={{backgroundImage: getBgImage(place.photos)}}>
+          <div className='place-box__header' style={{backgroundImage: `url(${getPlaceImage(place.photos)}`}}>
             <div className='place-box__overlay'></div>
             <h2 className='place-box__title'>{place.name}</h2>
             <Link to={`/places/${place.id}`}>            
@@ -50,13 +49,6 @@ class PlaceItem extends Component {
         </Panel>
       </Col>
     )
-  }
-}
-
-const getBgImage = (placePhotos) => {
-  const photoReference = placePhotos ? placePhotos[0].photo_reference : ''
-  if (photoReference !== '') {
-    return `url(${GOOGLE_PLACES_API}photo?maxwidth=400&photoreference=${photoReference}&key=${GOOGLE_PLACES_KEY})`
   }
 }
 

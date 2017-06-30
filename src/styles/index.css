@@ -143,6 +143,15 @@
       top: 0;
       right: -10px; } }
 
+.place-details {
+  text-align: center; }
+  .place-details__image-cont {
+    margin: 30px 0; }
+    .place-details__image-cont img {
+      max-width: 100%; }
+  .place-details__content {
+    font-size: 28px; }
+
 .navbar {
   margin-bottom: 0; }
 
